@@ -1,1 +1,3 @@
-print("Hello world, from server!")
+local PartLibrary = require(script.PartLibrary)
+
+print('PartLibrary was loaded')
