@@ -1,0 +1,29 @@
+name: Increment Version
+
+on:
+  push:
+    branches:
+      - master  # Adjust this if you want to run on a different branch
+
+jobs:
+  increment-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Increment Version
+        run: |
+          echo "Incrementing version"
+          VERSION=$(cat version.txt)
+          VERSION=$((VERSION+1))
+          echo $VERSION > version.txt
+          cat version.txt
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add version.txt
+          git commit -m "Increment version to $VERSION"
+          git push
