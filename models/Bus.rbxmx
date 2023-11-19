@@ -19,7 +19,7 @@
 				<R21>0</R21>
 				<R22>1</R22>
 			</CoordinateFrame>
-			<string name="Name">Bus</string>
+			<string name="Name">Giant car</string>
 			<Ref name="PrimaryPart">4</Ref>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
