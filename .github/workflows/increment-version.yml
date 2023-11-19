@@ -25,5 +25,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add version.txt
+          VERSION=$(cat version.txt)
           git commit -m "Increment version to $VERSION"
           git push
