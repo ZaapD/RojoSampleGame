@@ -29,7 +29,9 @@ Write down a one-line **brief** first: object, style (low-poly, stylized or real
 | realistic | **C. Poly Haven**, then **D. Objaverse** | Poly Haven is CC0 with high quality but only ~521 models. Objaverse has ~160K usable. |
 | nothing scores ≥ 0.60 after B–D | **E. `generate_mesh`** with a bounding Part selected | AI fallback, capped at 20k triangles. |
 
-Run B, C and D together in one `find` call. Only fall through to E after `find` comes back empty.
+Run B, C and D together in one `find` call. Add the 10 extended sources in `references/sources-extended.md` (Objaverse-XL, Thingiverse, Printables, MyMiniFactory, Cults3D, Smithsonian, NASA, Gazebo Fuel, OpenGameArt, itch.io) when B–D give fewer than 12 gated hits, or when the brief fits them (printable/stylized → printing sites; museum/space/household realism → Smithsonian/NASA/Fuel). Only fall through to E after `find` comes back empty.
+
+**Query expansion first:** turn the brief into 5–8 queries (literal, synonyms, sub-types, the site's own category words, style modifiers, creative neighbors). The recipe is in `references/sources-extended.md` (-1). Never search with only the user's literal words.
 
 ## 2. Find + hard gates (script, no images)
 
@@ -68,7 +70,7 @@ Don't build a three.js or model-viewer render bench. Studio itself is the bench 
 
 ## 5. Prep the winner (script)
 
-`prep <id> --budget <tris> --size <studs>` runs the fixed chain in `references/pipeline.md`:
+`prep <id> --budget <tris> --size <studs>` runs the fixed chain in `references/pipeline.md`. Non-glTF downloads (zip, OBJ, DAE, STL, 3MF, PLY) first go through the shared trimesh converter in `references/sources-extended.md`. Manual-assisted sources (Cults3D, itch.io): print the URL, ask the user to drop the zip into `cache/src/<id>/`, then continue.
 decompress, then `optimize` with **compression off and instancing off**, palette on, simplify to budget, textures ≤ 1024, then center at the bottom pivot, scale (1 stud = 0.28 m), and split the ARM texture into roughness/metalness PNGs. Last comes a self-check.
 
 It prints one JSON line. Proceed only if `ok: true`:

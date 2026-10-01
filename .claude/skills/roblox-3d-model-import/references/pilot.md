@@ -34,3 +34,20 @@ Fill in the results table at the bottom. SKILL.md step 0 refuses to run while an
 | P8 | ? | | |
 | P9 | ? | | |
 | P10 | ? | | |
+
+## Source checks (extended catalog)
+
+For each source, record **one search with a real query, one image fetch and one download + convert**. Use `ok`, `manual` or `fail`.
+
+| Source | Search | Images | Download + convert | Notes |
+|---|---|---|---|---|
+| Objaverse-XL | ? | ? | ? | |
+| Thingiverse | ? | ? | ? | |
+| Printables | ? | ? | ? | |
+| MyMiniFactory | ? | ? | ? | |
+| Cults3D | ? | ? | ? | manual download expected |
+| Smithsonian | ? | ? | ? | |
+| NASA 3D | ? | ? | ? | |
+| Gazebo Fuel | ? | ? | ? | |
+| OpenGameArt | ? | ? | ? | |
+| itch.io | ? | ? | ? | manual download expected |
